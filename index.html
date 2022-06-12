@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
-    <title>Document</title>
-</head>
-<body>
-    <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -25,21 +15,23 @@
 <body>
 
     <div class="container ">
-        <div class="absolute top-7 left-4 text-white text-2xl cursor-pointer " onclick="open()">
+        <div class="absolute top-7 left-4 text-white text-2xl cursor-pointer " onclick="toggle()">
             <span >
                 <i class="bi bi-filter-left px-2 bg-gray-800 rounded-md"></i>
             </span>
         </div>
         
-        <div class="sidebar fixed inset-y-0 lg:left-0 left-[-300px] p-2 w-[280px] overflow-y-auto text bg-gray-900 " >
+        <div id="sidebar" class="fixed inset-y-0 lg:left-0 left-[-300px] p-2 w-[280px] overflow-y-auto text bg-gray-900" onclick="toggle()" >
             <div class="text-gray-100 text-xl">
                <div class="p-2.5 mt-4 flex item-center">
                    <h1 class="font-bold text-gray-200 text-[15px] ml-3">
                        <i class="bi bi-person-workspace rounded px-3 py-2 bg-white text-black  "></i>
-                       <i class="bi bi-x ml-44 lg:hidden" onclick="open()"></i>
+                       <i class="bi bi-x ml-44 lg:hidden" ></i>
                     </h1>
                </div>
+
                <hr class="my-2 bg-gray-400 mt-4 ">
+
                <div class=" mt-12 mx-10 rounded-md hover:bg-blue-500 hover:font-bold p-3 cursor-pointer">
                   <i class="bi bi-columns mx-2"></i>
                   <span class="text-xl">Dashboard</span>
@@ -69,6 +61,7 @@
                  <img class="w-12 rounded-full h-12 inline-block mr-10" src="image.png" alt="">
             </div>
         </div>
+
         <div class="mt-10 font-sans cursor-pointer rounded-md   text-center mx-28 sm:float-left sm:mx-60 md:mx-72 md:mt-24 lg:float-left">
             <div class="hover:bg-gray-200  hover:text-black hover:font-bold my-4 p-3 ">
                 <i class="bi bi-pencil-fill mx-1"></i>
@@ -87,37 +80,56 @@
                 <span class="text-xl ">Password</span>
             </div>
         </div>
-        <div class="font-sans  mt-10 sm:float-left  sm:my-7 sm:mx-10 md:mx-44 md:my-28   lg:-mt-72 lg:ml-96 ">
+
+        <div class="font-sans  mt-10 sm:float-left  sm:my-7 sm:mx-10 md:mx-56 md:my-28 lg:-mt-72 lg:ml-96 ">
             <form action="" class="lg:ml-64">
                 <span class="text-xl font-semibold mx-5 sm:text-3xl">Edit Profile</span>
                 <div class="image md:mt-5">
                     <img class="rounded-full w-28 p-2 h-28 mx-32 mt-2 " src="image.png" alt="">
                 </div>
         
-                <div class="flex mt-4 mx-4 md:mt-5 ">
-                    <span class="p-1  "> First Name <input class="p-1 mt-2 rounded-md outline-blue-300 sm:mx-3 border border-gray-300" type="text" placeholder="First Name"></span>
-                    <span class=" p-1 "> Last Name <input class="p-1 mt-2 rounded-md outline-blue-300 sm:mx-3 border border-gray-300 " type="text" placeholder="Last Name"></span>
+                <div class="flex mt-4  md:mt-5 ">
+                  <label class="mx-2" for="First Name">First Name :
+                    <input class="p-1 mt-4 rounded-md outline-blue-300  border border-gray-300" type="text" id="First Name" placeholder="First Name">
+                  </label>
+
+                  <label class="mx-2" for="Last Name">Last Name :
+                    <input class="p-1 mt-4 rounded-md outline-blue-300  border border-gray-300 " type="text" id="Last Name" placeholder="Last Name">
+                  </label>
                 </div>
         
-                <div class=" mt-3 mx-6 md:mt-5">
-                    <span class="p-1">Email <input class="p-1 mx-4 sm:mx-5 rounded-md outline-blue-300 border border-gray-300" type="email" name="Email" id="" placeholder="xyz@gmail.com"></span>
+                <div class=" mt-3  md:mt-5">
+                  <label class="mx-2" for="email">Email :
+                    <input class="p-1 mt-4  rounded-md outline-blue-300 border border-gray-300" type="email" name="Email" id="email" placeholder="xyz@gmail.com">
+                  </label>
                 </div>
 
-                <div class=" mt-4 mx-6 md:mt-5">
-                    <span class="p-1">Contact <input class="p-1 mx-4 sm:mx-5 rounded-md outline-blue-300 border border-gray-300" type="number" name="Contact" id="" placeholder="1234567890"></span>
+                <div class=" mt-4 md:mt-5">
+                    <label class="mx-2" for="contact">Contact :
+                        <input class="p-1 mt-4 rounded-md outline-blue-300 border border-gray-300" type="number" name="Contact" id="contact" placeholder="1234567890">
+                    </label>
                 </div>
 
-                <div class=" mt-2 mx-6 md:mt-5">
-                    <label class="p-1">Address <textarea class="mx-6 p-1 rounded-md outline-blue-300 border border-gray-300" name="Address" id="" cols="20" rows="3"></textarea></label>
+                <div class=" mt-2 md:mt-5">
+                    <label class="mx-2" for="address">Address :
+                         <textarea class="p-1 mt-4 rounded-md outline-blue-300 border border-gray-300" name="Address" id="address" cols="20" rows="3" placeholder="Address"></textarea>
+                    </label>
                 </div>
 
-                <div class="flex mt-4 mx-4 md:mt-5 ">
-                    <span class="p-1"> City <input class="p-1 mt-2 rounded-md outline-blue-300 sm:mx-3 border border-gray-300" type="text" placeholder="City"></span>
-                    <span class=" p-1"> State <input class="p-1 mt-2 rounded-md outline-blue-300 sm:mx-3 border border-gray-300" type="text" placeholder="State"></span>
+                <div class="flex mt-4  md:mt-5 ">
+                    <label class="mx-2" for="city">City :
+                       <input class="p-1 mt-4 rounded-md outline-blue-300 border border-gray-300" type="text" id="city" placeholder="City">
+                    </label>
+
+                    <label class="mx-2" for="state">State :
+                       <input class="p-1 mt-4 rounded-md outline-blue-300 border border-gray-300" type="text" id="state" placeholder="State">
+                    </label>
                 </div>
 
-                <div class=" mt-4 mx-6 md:mt-5">
-                    <span class="p-1">Password <input class="p-1 mt-2 rounded-md outline-blue-300 sm:mx-3 border border-gray-300" type="password" name="Password" id=""></span>
+                <div class=" mt-4 md:mt-5">
+                    <label class="mx-2" for="password">Password :
+                         <input class="p-1 mt-4 rounded-md outline-blue-300  border border-gray-300" type="password" name="Password" id="password" placeholder="*********">
+                    </label>
                 </div>
 
                 <button class="mx-32 my-5 p-2 w-24 font-semibold bg-blue-500 md:mt-5 hover:bg-blue-700 hover:text-white">Save</button>
@@ -126,9 +138,14 @@
     </div>
         
     <script>
-       function open(){
-    document.querySelector('.sidebar').classList.toggle('left-[-300px]');
-        }
+        let sidebar = document.getElementById("sidebar")
+        function toggle(){
+        sidebar.addEventListener("click", function(e){
+            sidebar.style.display = "block";
+            e.preventDefault();
+        })
+    }
+     
     </script>
         
                
@@ -136,6 +153,4 @@
 </body>
 
    
-</html>
-</body>
 </html>

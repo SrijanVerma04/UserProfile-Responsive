@@ -15,18 +15,18 @@
 <body>
 
     <div class="container ">
-        <div class="absolute top-7 left-4 text-white text-2xl cursor-pointer " onclick="toggle()">
+        <div id="btn" class="absolute top-7 left-4 text-white text-2xl cursor-pointer " onclick="toggleopen()">
             <span >
                 <i class="bi bi-filter-left px-2 bg-gray-800 rounded-md"></i>
             </span>
         </div>
         
-        <div id="sidebar" class="fixed inset-y-0 lg:left-0 left-[-300px] p-2 w-[280px] overflow-y-auto text bg-gray-900" onclick="toggle()" >
+        <div id="sidebar" class="fixed inset-y-0 lg:left-0 lg:block md:animate-none  p-2 w-[280px] overflow-y-auto text bg-gray-900 hidden"  >
             <div class="text-gray-100 text-xl">
                <div class="p-2.5 mt-4 flex item-center">
                    <h1 class="font-bold text-gray-200 text-[15px] ml-3">
-                       <i class="bi bi-person-workspace rounded px-3 py-2 bg-white text-black  "></i>
-                       <i class="bi bi-x ml-44 lg:hidden" ></i>
+                       <i class="bi bi-person-workspace rounded px-2 py-1  bg-white text-black  "></i>
+                       <i class="bi bi-x ml-44 lg:hidden" onclick="toggleopen()" ></i>
                     </h1>
                </div>
 
@@ -81,7 +81,7 @@
             </div>
         </div>
 
-        <div class="font-sans  mt-10 sm:float-left  sm:my-7 sm:mx-10 md:mx-56 md:my-28 lg:-mt-72 lg:ml-96 ">
+        <div class="font-sans  mt-10 sm:float-left  sm:my-20 sm:mx-28 md:mx-56 md:my-28 lg:-mt-72 lg:ml-96 ">
             <form action="" class="lg:ml-64">
                 <span class="text-xl font-semibold mx-5 sm:text-3xl">Edit Profile</span>
                 <div class="image md:mt-5">
@@ -138,17 +138,21 @@
     </div>
         
     <script>
-        let sidebar = document.getElementById("sidebar")
-        function toggle(){
-        sidebar.addEventListener("click", function(e){
+      function toggleopen(){
+        let btn = document.getElementById("btn");
+        let sidebar = document.getElementById("sidebar");
+
+        if(sidebar.style.display != "none"){
+             sidebar.style.display = "none";  
+        }
+        else{
             sidebar.style.display = "block";
-            e.preventDefault();
-        })
-    }
-     
-    </script>
-        
-               
+      } 
+    // document.querySelector("#sidebar").classList.toggle("left-[-300px]");
+    }   
+    
+      
+    </script>        
 
 </body>
 
